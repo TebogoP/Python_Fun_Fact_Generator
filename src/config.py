@@ -1,0 +1,1 @@
+API_URL = "https://uselessfacts.jsph.pl/random.json?language=en"
