@@ -2,6 +2,7 @@ import unittest
 import sys
 import os
 from unittest.mock import patch, MagicMock
+from requests import RequestException
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../src')))
 
@@ -58,6 +59,18 @@ class TestFactGenerator(unittest.TestCase):
     #     fact =fetch_fact()
     #     self.assertEqual(fact, f"Error: Received status code {mock_response.status_code}")
     #     mock_get.assert_called_once_with(API_URL)
+
+
+    # @patch(FACT_GET_REQUEST)  # Mock the requests.get function
+    # def test_fetch_fact_request_exception(self, mock_get):
+    #     # Simulate a RequestException being raised
+    #     mock_get.side_effect = RequestException("Simulated connection error")
+
+    #     # Call the function
+    #     fact = fetch_fact()
+
+    #     # Verify that the error message is as expected
+    #     self.assertTrue("Error: Unable to fetch fact. Details: Simulated connection error" in fact)
 
 
 if __name__ == '__main__':
