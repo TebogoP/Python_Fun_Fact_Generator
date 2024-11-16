@@ -1,6 +1,10 @@
 import unittest
+import sys
+import os
 
-from src.fact_generator import fetch_fact,  fetch_multiple_facts
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../src')))
+
+from fact_generator import fetch_fact,  fetch_multiple_facts
 class TestFactGenerator(unittest.TestCase):
     def test_something(self):
         self.assertFalse(False)
