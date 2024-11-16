@@ -6,13 +6,13 @@ from unittest.mock import patch, MagicMock
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../src')))
 
 from fact_generator import fetch_fact,  fetch_multiple_facts
-from config import API_URL 
+from config import API_URL, FACT_GET_REQUEST
 
 class TestFactGenerator(unittest.TestCase):
     def test_something(self):
         self.assertFalse(False)
 
-    # @patch('fact_generator.requests.get')  # Mock the requests.get function
+    # @patch(FACT_GET_REQUEST)  # Mock the requests.get function
     # def test_fetch_single_fact(self, mock_get):
 
     #     # Mock API response
@@ -26,7 +26,7 @@ class TestFactGenerator(unittest.TestCase):
     #     self.assertEqual(fact, "Did you know? The Moon is slowly drifting away from Earth.")
     #     mock_get.assert_called_once_with(API_URL)
 
-    # @patch('fact_generator.requests.get')
+    # @patch(FACT_GET_REQUEST)
     # def test_fetch_multiple_facts(self, mock_get):
     #     # Mock API response for multiple calls
     #     mock_response_1 = MagicMock()
@@ -46,6 +46,19 @@ class TestFactGenerator(unittest.TestCase):
     #         "Bananas are berries, but strawberries aren't."
     #     ])
     #     self.assertEqual(mock_get.call_count, 2)
+
+    # @patch(FACT_GET_REQUEST)
+    # def test_handle_api_failure(self, mock_get):
+    #     # Mock a failed API response
+    #     mock_response = MagicMock()
+    #     mock_response.status_code = 500
+    #     mock_get.return_value = mock_response
+
+    #     # Test error handling
+    #     fact =fetch_fact()
+    #     self.assertEqual(fact, f"Error: Received status code {mock_response.status_code}")
+    #     mock_get.assert_called_once_with(API_URL)
+
 
 if __name__ == '__main__':
     unittest.main()
